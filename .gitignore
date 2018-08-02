@@ -3,3 +3,4 @@ gtfs-downloads
 config*.json
 !config-sample.json
 test/fixture/tmp/*.txt
+.DS_store

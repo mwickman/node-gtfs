@@ -1,6 +1,66 @@
 const mongoose = require('mongoose');
 
+// const timeSchema = new mongoose.Schema({
+//   delay: Number,
+//   time: Number,
+//   uncertainty: Number,
+// });
+//
+// const stopTimeUpdateSchema = new mongoose.Schema({
+//   stop_id: {
+//     type: String,
+//   },
+//   stop_sequence: {
+//     type: Number,
+//     min: 0
+//   },
+//   arrival: timeSchema,
+//   departure: timeSchema,
+//   schedule_relationship: Number
+// });
+
+// stop_time_update: {
+//   stop_id: {
+//     type: String,
+//   },
+//   stop_sequence: {
+//     type: Number,
+//   },
+//   arrival: {
+//     delay: Number,
+//       time: Number,
+//       uncertainty: Number,
+//   },
+//   departure: {
+//     delay: Number,
+//       time: Number,
+//       uncertainty: Number,
+//   },
+//   schedule_relationship: Number
+// },
+
+// having trouble getting these schema additions working
+// stop_id: {
+//   type: String,
+// },
+// stop_sequence: {
+//   type: Number,
+// },
+// arrival: {
+//   delay: String,
+//     time: String,
+//     uncertainty: String,
+// },
+// departure: {
+//   delay: String,
+//     time: String,
+//     uncertainty: Number,
+// },
+// schedule_relationship: Number
+// },
+
 const stopTimeSchema = new mongoose.Schema({
+  stop_time_update: mongoose.Schema.Types.Mixed,
   agency_key: {
     type: String,
     required: true,
@@ -45,7 +105,7 @@ const stopTimeSchema = new mongoose.Schema({
     min: 0,
     max: 1
   }
-});
+}, {strict: false});
 
 stopTimeSchema.index({
   agency_key: 1,
